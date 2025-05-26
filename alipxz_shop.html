@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alipxz Shop</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #1f1c2c, #928dab);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container, .page {
+      display: none;
+      max-width: 420px;
+      background: rgba(255,255,255,0.06);
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      width: 90%;
+      animation: fadeIn 0.6s ease;
+    }
+    .active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .profile-img, .logo-img, .qr-img {
+      width: 110px; height: 110px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: url('https://files.catbox.moe/yb3g39.jpg') no-repeat center center/cover;
+      border: 4px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+    .qr-img {
+      background-image: url('https://files.catbox.moe/2tqfhr.jpg');
+      border-radius: 10px;
+      width: 100%; height: 200px;
+    }
+    .typewriter {
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #00e3ae, #00c3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+    }
+    .button, .menu-item, .back-button {
+      padding: 12px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00e3ae, #00c3ff);
+      color: #000;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.3s;
+    }
+    .button:hover, .menu-item:hover, .back-button:hover {
+      transform: scale(1.05);
+    }
+    .method {
+      display: flex; align-items: center;
+      background: rgba(255,255,255,0.1);
+      padding: 12px; margin: 10px 0;
+      border-radius: 15px; cursor: pointer;
+    }
+    .method img {
+      width: 45px; height: 45px;
+      border-radius: 50%; object-fit: cover;
+      background: #fff; margin-right: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container active" id="welcome">
+    <div class="profile-img"></div>
+    <div class="typewriter" id="typing"></div>
+    <button class="button" onclick="goTo('menu')">Masuk Toko</button>
+  </div>
+
+  <div class="container" id="menu">
+    <div class="logo-img"></div>
+    <h2>Menu Utama</h2>
+    <button class="menu-item" onclick="goTo('produk')">Produk</button>
+    <button class="menu-item" onclick="goTo('payment')">Pembayaran</button>
+  </div>
+
+  <div class="container" id="produk">
+    <h2>Pilih Kategori Produk</h2>
+    <button class="menu-item" onclick="goTo('produk-panel')">List Panel</button>
+    <button class="menu-item" onclick="goTo('produk-bot')">List Bot WhatsApp</button>
+    <button class="menu-item" onclick="goTo('produk-murid')">Murid Alipxz</button>
+    <button class="menu-item" onclick="goTo('produk-jasa')">Jasa Alipxz</button>
+    <button class="back-button" onclick="goTo('menu')">Kembali</button>
+  </div>
+
+  <!-- Halaman Produk Panel -->
+  <div class="page container" id="produk-panel">
+    <div class="logo-img"></div>
+    <h2>List Panel</h2>
+    <button class="menu-item" onclick="goTo('payment')">1GB - 1k</button>
+    <button class="menu-item" onclick="goTo('payment')">2GB - 2k</button>
+    <button class="menu-item" onclick="goTo('payment')">3GB - 3k</button>
+    <button class="menu-item" onclick="goTo('payment')">4GB - 4k</button>
+    <button class="menu-item" onclick="goTo('payment')">5GB - 5k</button>
+    <button class="back-button" onclick="goTo('produk')">Kembali</button>
+  </div>
+
+  <!-- Halaman Produk Bot WhatsApp -->
+  <div class="page container" id="produk-bot">
+    <div class="logo-img"></div>
+    <h2>Bot WhatsApp</h2>
+    <button class="menu-item" onclick="goTo('payment')">7 Hari - 5k</button>
+    <button class="menu-item" onclick="goTo('payment')">15 Jam - 10k</button>
+    <button class="menu-item" onclick="goTo('payment')">23 Jam - 15k</button>
+    <button class="menu-item" onclick="goTo('payment')">Permanent - 20k</button>
+    <button class="back-button" onclick="goTo('produk')">Kembali</button>
+  </div>
+
+  <!-- Halaman Produk Murid -->
+  <div class="page container" id="produk-murid">
+    <div class="logo-img"></div>
+    <h2>Murid Alipxz</h2>
+    <button class="menu-item" onclick="goTo('payment')">Logo - 5k</button>
+    <button class="menu-item" onclick="goTo('payment')">Suntik - 5k</button>
+    <button class="menu-item" onclick="goTo('payment')">Nokos - 5k</button>
+    <button class="menu-item" onclick="goTo('payment')">Web - 15k</button>
+    <button class="back-button" onclick="goTo('produk')">Kembali</button>
+  </div>
+
+  <!-- Halaman Produk Jasa -->
+  <div class="page container" id="produk-jasa">
+    <div class="logo-img"></div>
+    <h2>Jasa Alipxz</h2>
+    <button class="menu-item" onclick="goTo('payment')">Nokos - 6k</button>
+    <button class="menu-item" onclick="goTo('payment')">Logo - 4k</button>
+    <button class="menu-item" onclick="goTo('payment')">Jaga Grup - 5k</button>
+    <button class="menu-item" onclick="goTo('payment')">Web - 10k</button>
+    <button class="back-button" onclick="goTo('produk')">Kembali</button>
+  </div>
+
+  <!-- Halaman Pembayaran -->
+  <div class="container" id="payment">
+    <h2>Pilih Metode Pembayaran</h2>
+    <div class="method" onclick="goTo('dana')">
+      <img src="https://files.catbox.moe/yb3g39.jpg" alt="Dana">
+      <span>DANA</span>
+    </div>
+    <div class="method" onclick="goTo('gopay')">
+      <img src="https://files.catbox.moe/yb3g39.jpg" alt="Gopay">
+      <span>GOPAY</span>
+    </div>
+    <div class="method" onclick="goTo('ovo')">
+      <img src="https://files.catbox.moe/yb3g39.jpg" alt="OVO">
+      <span>OVO</span>
+    </div>
+    <div class="method" onclick="goTo('qris')">
+      <img src="https://files.catbox.moe/2tqfhr.jpg" alt="QRIS">
+      <span>QRIS</span>
+    </div>
+    <button class="back-button" onclick="goTo('menu')">Kembali</button>
+  </div>
+
+  <!-- Halaman per metode pembayaran -->
+  <div class="page container" id="dana">
+    <div class="profile-img"></div>
+    <h2>DANA</h2>
+    <p>Nomor: <b>0831-1493-6695</b></p>
+    <a class="button" href="https://wa.me/6283114936695" target="_blank">Kirim Bukti Transfer</a>
+    <button class="back-button" onclick="goTo('payment')">Kembali</button>
+  </div>
+
+  <div class="page container" id="gopay">
+    <div class="profile-img"></div>
+    <h2>GOPAY</h2>
+    <p>Nomor: <b>0831-1493-6695</b></p>
+    <a class="button" href="https://wa.me/6283114936695" target="_blank">Kirim Bukti Transfer</a>
+    <button class="back-button" onclick="goTo('payment')">Kembali</button>
+  </div>
+
+  <div class="page container" id="ovo">
+    <div class="profile-img"></div>
+    <h2>OVO</h2>
+    <p>Nomor: <b>0831-1493-6695</b></p>
+    <a class="button" href="https://wa.me/6283114936695" target="_blank">Kirim Bukti Transfer</a>
+    <button class="back-button" onclick="goTo('payment')">Kembali</button>
+  </div>
+
+  <div class="page container" id="qris">
+    <div class="qr-img"></div>
+    <h2>Scan QRIS</h2>
+    <a class="button" href="https://wa.me/6283114936695" target="_blank">Kirim Bukti Transfer</a>
+    <button class="back-button" onclick="goTo('payment')">Kembali</button>
+  </div>
+
+  <script>
+    const texts = ['• Halo saya Alipxz', '• Selamat datang di web Alipxz', '• Selamat membeli'];
+    let i = 0, j = 0, isDeleting = false;
+    function typeEffect() {
+      const typing = document.getElementById('typing');
+      if (!typing) return;
+      if (!isDeleting) {
+        typing.textContent = texts[i].substring(0, j++);
+        if (j > texts[i].length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1500);
+          return;
+        }
+      } else {
+        typing.textContent = texts[i].substring(0, j--);
+        if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % texts.length;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 100 : 150);
+    }
+    typeEffect();
+
+    function goTo(id) {
+      document.querySelectorAll('.container, .page').forEach(e => e.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
